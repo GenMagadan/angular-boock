@@ -1,0 +1,25 @@
+<div class="container">
+   <div class="box">
+
+      <form class="worksheet" [formGroup]="loginForm ">
+         <mat-form-field class="email">
+            <mat-label>Почта</mat-label>
+            <input matInput type="text" formControlName="email">
+         </mat-form-field>
+         <ng-container *ngIf="email.dirty || email.touched">
+            <mat-error *ngIf="email.hasError('required')">адрес необходим</mat-error>
+            <mat-error *ngIf="email.hasError('email')">адрес некорректен</mat-error>
+         </ng-container>
+
+         <mat-form-field class="password">
+            <mat-label>Пароль</mat-label>
+            <input matInput type="text" formControlName="password">
+         </mat-form-field>
+         <ng-container *ngIf="password.dirty || password.touched">
+            <mat-error *ngIf="password.hasError('required')">пароль необходим</mat-error>
+         </ng-container>
+         <mat-error *ngIf="isLoginfailed">Something went wrong</mat-error>
+      </form>
+      <button mat-button (click)="login()" [disabled]="loginForm.invalid">Пароль</button>
+   </div>
+</div>

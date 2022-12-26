@@ -1,0 +1,48 @@
+<mat-sidenav-container>
+   <mat-sidenav [opened]="authService.isAuthorized" mode="side">
+      <mat-nav-list>
+         <a mat-list-item routerLink="home" routerLinkActive="mat-mdc-list-item-active" [routerLinkActiveOptions]="{exact:
+            true}">
+            <mat-icon matListItemIcon>home</mat-icon>
+            <span matListItemTitle>Главная</span>
+         </a>
+         <a mat-list-item routerLink="boock" routerLinkActive="mat-mdc-list-item-active" [routerLinkActiveOptions]="{exact:
+            true}">
+            <mat-icon matListItemIcon>menu_book</mat-icon>
+            <span matListItemTitle>Книги</span>
+            <span class="amount">{{ linkBoocks }}</span>
+         </a>
+         <a mat-list-item routerLink="authors" routerLinkActive="mat-mdc-list-item-active" [routerLinkActiveOptions]="{exact:
+            true}">
+            <mat-icon matListItemIcon>sensor_occupied</mat-icon>
+            <span matListItemTitle>Авторы</span>
+            <span class="amount">{{ linkAuthors }}</span>
+         </a>
+         <a mat-list-item routerLink="journals" routerLinkActive="mat-mdc-list-item-active" [routerLinkActiveOptions]="{exact:
+            true}">
+            <mat-icon matListItemIcon>book_online</mat-icon>
+            <span matListItemTitle>Журналы</span>
+            <span class="amount">{{ linkJournals }}</span>
+         </a>
+         <a mat-list-item routerLink="articles" routerLinkActive="mat-mdc-list-item-active" [routerLinkActiveOptions]="{exact:
+            true}">
+            <mat-icon matListItemIcon>summarize</mat-icon>
+            <span matListItemTitle>Статьи</span>
+            <span class="amount">{{ linkArticles }}</span>
+         </a>
+      </mat-nav-list>
+      <mat-nav-list>
+         <div class="exit">
+            <a mat-list-item routerLink="exit" (click)="authService.logout()"
+               routerLinkActive="mat-mdc-list-item-active">
+               <mat-icon matListItemIcon>door_back</mat-icon>
+               <span matListItemTitle>Выход</span>
+            </a>
+         </div>
+      </mat-nav-list>
+
+   </mat-sidenav>
+   <mat-sidenav-content>
+      <router-outlet></router-outlet>
+   </mat-sidenav-content>
+</mat-sidenav-container>
